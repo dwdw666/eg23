@@ -12,13 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
-import javax.swing.JTextField;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.JRadioButton;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.DefaultComboBoxModel;
 
 public class gestion_des_UEs {
 

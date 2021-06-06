@@ -13,9 +13,6 @@ import javax.swing.SwingConstants;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 import javax.swing.JTextField;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.JRadioButton;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
@@ -97,7 +94,7 @@ public class gestion_des_enseignants {
 		panel_left.setLayout(null);
 		
 		textField = new JTextField();
-		textField.setBounds(10, 49, 268, 29);
+		textField.setBounds(10, 49, 160, 29);
 		panel_left.add(textField);
 		textField.setColumns(10);
 		
@@ -315,6 +312,12 @@ public class gestion_des_enseignants {
 		row8_button.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
 		row8_button.setForeground(new Color(21, 50, 207));
 		panel_left.add(row8_button);
+		
+		JButton row1_button_3 = new JButton("Enter");
+		row1_button_3.setForeground(new Color(21, 50, 207));
+		row1_button_3.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
+		row1_button_3.setBounds(180, 49, 98, 29);
+		panel_left.add(row1_button_3);
 
 		
 		JPanel panel_rightdown = new JPanel();
