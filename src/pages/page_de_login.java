@@ -14,6 +14,9 @@ import javax.swing.JButton;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
+import javax.swing.border.LineBorder;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class page_de_login {
 
@@ -24,19 +27,26 @@ public class page_de_login {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					page_de_login window = new page_de_login();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					page_de_login window = new page_de_login();
+//					window.frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
+	public void run() {
+		try {
+			page_de_login window = new page_de_login();
+			window.frame.setVisible(true);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
-
 	/**
 	 * Create the application.
 	 */
@@ -64,13 +74,14 @@ public class page_de_login {
 		JPanel logIn = new JPanel();
 		logIn.setBounds(202, 179, 498, 247);
 		logIn.setBackground(new Color(115, 175, 237));
+		logIn.setBorder(new LineBorder(new Color(21, 50, 207), 2));
 		panel.add(logIn);
 		logIn.setLayout(null);
 		
 		JLabel title_logIn = new JLabel("Identification");
 		title_logIn.setHorizontalAlignment(SwingConstants.CENTER);
 		title_logIn.setBounds(114, 10, 250, 48);
-		title_logIn.setBorder(blackline);
+		title_logIn.setBorder(new LineBorder(new Color(21, 50, 207), 2));
 		title_logIn.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 30));
 		title_logIn.setForeground(new Color(21, 50, 207));
 		logIn.add(title_logIn);
@@ -103,15 +114,22 @@ public class page_de_login {
 		logIn.add(oublie_mot);
 		
 		JButton connecter = new JButton("SE CONNECTER");
+		connecter.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				page_d_accueil accueil = new page_d_accueil();
+				frame.dispose();
+				accueil.run();
+			}
+		});
 		connecter.setBounds(173, 189, 143, 23);
 		logIn.add(connecter);
 		
-		JLabel title = new JLabel("DEPARTEMENT MANAGEMENT");
+		JLabel title = new JLabel("DEPARTEMENT MANAGER");
 		title.setHorizontalAlignment(SwingConstants.CENTER);
-		title.setBounds(265, 35, 486, 50);
+		title.setBounds(230, 32, 435, 50);
 		title.setBackground(new Color(115, 175, 237));
 		title.setOpaque(true);
-		title.setBorder(blackline);
+		title.setBorder(new LineBorder(new Color(21, 50, 207), 2));
 		title.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 30));
 		title.setForeground(new Color(21, 50, 207));
 		panel.add(title );
