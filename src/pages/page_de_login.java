@@ -49,51 +49,33 @@ public class page_de_login {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		Border blackline = BorderFactory.createLineBorder(Color.black); //border of login panel
+		Border blackline = BorderFactory.createLineBorder(new Color(21,50,207));
 		
-		JPanel login = new JPanel();
-		login.setBounds(206, 188, 450, 220);
-		frame.getContentPane().add(login);
-		login.setLayout(null);
-		login.setBorder(blackline);
+		JPanel panel = new JPanel();
+		panel.setBounds(0, 0, 886, 613);
+		frame.getContentPane().add(panel);
+		panel.setBackground(new Color(162,203,246));
+		panel.setLayout(null);
 		
+		JPanel logIn = new JPanel();
+		logIn.setBounds(239, 192, 445, 213);
+		panel.add(logIn);
+		logIn.setLayout(null);
 		
-		JLabel id = new JLabel("id");
-		id.setHorizontalAlignment(SwingConstants.CENTER);
-		id.setBounds(42, 79, 65, 15);
-		login.add(id);
-		
-		JLabel mot_de_passe = new JLabel("mot_de_passe");
-		mot_de_passe.setHorizontalAlignment(SwingConstants.CENTER);
-		mot_de_passe.setBounds(29, 125, 104, 15);
-		login.add(mot_de_passe);
-		
-		JLabel idientification = new JLabel("idientification");
-		idientification.setHorizontalAlignment(SwingConstants.CENTER);
-		idientification.setBounds(138, 25, 200, 30);
-		login.add(idientification);
-		
-		JTextPane input_id = new JTextPane();
-		input_id.setBounds(171, 79, 200, 25);
-		login.add(input_id);
-		
-		JTextPane input_mot = new JTextPane();
-		input_mot.setBounds(171, 125, 200, 25);
-		login.add(input_mot);
-		
-		JLabel oublier_mot_de_passe = new JLabel("oublier?");
-		oublier_mot_de_passe.setHorizontalAlignment(SwingConstants.CENTER);
-		oublier_mot_de_passe.setBounds(39, 150, 58, 15);
-		login.add(oublier_mot_de_passe);
-		
-		JButton connecter = new JButton("se connecter");
-		connecter.setBounds(138, 174, 120, 25);
-		login.add(connecter);
+		JLabel title_logIn = new JLabel("Identification");
+		title_logIn.setHorizontalAlignment(SwingConstants.CENTER);
+		title_logIn.setBounds(114, 24, 200, 30);
+		title_logIn.setBorder(blackline);
+		logIn.add(title_logIn);
 		
 		JLabel title = new JLabel("DEPARTEMENT MANAGEMENT");
 		title.setHorizontalAlignment(SwingConstants.CENTER);
-		title.setFont(new Font("ËÎÌו", Font.BOLD, 12));
-		title.setBounds(222, 34, 430, 50);
-		frame.getContentPane().add(title);
+		title.setBounds(243, 30, 430, 50);
+		title.setBorder(blackline);
+		panel.add(title );
+		
+		JLabel uttLabel = new JLabel();
+		uttLabel.setBounds(10, 10, 210, 90);
+		panel.add(uttLabel);
 	}
 }
