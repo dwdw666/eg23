@@ -75,9 +75,9 @@ public class page_d_accueil {
 		accueilLabel.setForeground(new Color(21, 50, 207));
 		accueilLabel.setOpaque(true);
 		accueilLabel.setBackground(new Color(115, 175, 237));
-		accueilLabel.setBounds(243, 30, 400, 40);
+		accueilLabel.setBounds(243, 30, 400, 50);
 		panel.add(accueilLabel);
-		accueilLabel.setBorder(blackline);
+		accueilLabel.setBorder(new LineBorder(new Color(21, 50, 207), 2));
 		
 		JLabel uttLabel = new JLabel();
 		uttLabel.setIcon(new ImageIcon(getClass().getResource("/Image/UTT.png")));
@@ -94,7 +94,7 @@ public class page_d_accueil {
 		
 		JLabel userLabel = new JLabel();
 		userLabel.setIcon(new ImageIcon(getClass().getResource("/Image/user.png")));
-		userLabel.setBounds(20, 20, 170, 170);
+		userLabel.setBounds(45, 45, 120, 120);
 		panel_left.add(userLabel);
 		
 		JLabel nameLabel = new JLabel("Pr\u00E9nom NOM");
