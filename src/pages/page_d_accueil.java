@@ -71,6 +71,8 @@ public class page_d_accueil {
 		JLabel accueilLabel = new JLabel("ACCUEIL");
 		accueilLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		accueilLabel.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 30));
+		accueilLabel.setForeground(new Color(21, 50, 207));
+
 		accueilLabel.setOpaque(true);
 		accueilLabel.setBackground(new Color(115, 175, 237));
 		accueilLabel.setBounds(243, 30, 400, 40);
@@ -78,7 +80,6 @@ public class page_d_accueil {
 		accueilLabel.setBorder(blackline);
 		
 		JLabel uttLabel = new JLabel();
-		
 		uttLabel.setIcon(new ImageIcon(getClass().getResource("/Image/UTT.png")));
 		uttLabel.setBounds(10, 10, 210, 90);
 		panel.add(uttLabel);
@@ -90,8 +91,13 @@ public class page_d_accueil {
 		panel_left.setBorder(blackline);
 		panel_left.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setBounds(20, 20, 170, 170);
+		JLabel userLabel = new JLabel();
+		userLabel.setIcon(new ImageIcon(getClass().getResource("/Image/user.png")));
+		userLabel.setBounds(20, 20, 170, 170);
+		panel_left.add(userLabel);
+		
+		JLabel lblNewLabel = new JLabel("Pr\u00E9nom NOM");
+		lblNewLabel.setBounds(30, 200, 160, 40);
 		panel_left.add(lblNewLabel);
 		
 		JPanel panel_right = new JPanel();
