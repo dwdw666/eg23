@@ -326,28 +326,59 @@ public class gestion_des_enseignants {
 		
 		JLabel resultatText1 = new JLabel("Types de l\u2019enseignant : ");
 		resultatText1.setForeground(new Color(21, 50, 207));
-		resultatText1.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 18));
-		resultatText1.setBounds(25, 25, 275, 30);
+		resultatText1.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 16));
+		resultatText1.setBounds(25, 25, 275, 55);
 		panel_rightdown.add(resultatText1);
 		
 		JLabel resultatText1_1 = new JLabel("Professeur");
 		resultatText1_1.setForeground(new Color(21, 50, 207));
-		resultatText1_1.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 18));
-		resultatText1_1.setBounds(300, 25, 210, 30);
+		resultatText1_1.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 16));
+		resultatText1_1.setBounds(330, 25, 210, 55);
 		panel_rightdown.add(resultatText1_1);
 		
 		JLabel resultatText2 = new JLabel("Liste des UEs : ");
 		resultatText2.setForeground(new Color(21, 50, 207));
-		resultatText2.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 18));
-		resultatText2.setBounds(25, 115, 275, 30);
+		resultatText2.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 16));
+		resultatText2.setBounds(25, 115, 275, 55);
 		panel_rightdown.add(resultatText2);
 		
 		JComboBox comboBox = new JComboBox();
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"LO12", "EG23", "LO02"}));
 		comboBox.setForeground(new Color(21, 50, 207));
-		comboBox.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 18));
-		comboBox.setBounds(300, 115, 210, 30);
+		comboBox.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 16));
+		comboBox.setBounds(330, 115, 210, 55);
 		panel_rightdown.add(comboBox);
+		
+		JLabel resultatText3 = new JLabel("Nombre d\u2019heures suppl\u00E9mentaires : ");
+		resultatText3.setForeground(new Color(21, 50, 207));
+		resultatText3.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 16));
+		resultatText3.setBounds(25, 190, 275, 55);
+		panel_rightdown.add(resultatText3);
+		
+		JLabel resultatText3_1 = new JLabel();
+		resultatText3_1.setText("(les 5 derni\u00E8res ann\u00E9es)");
+		resultatText3_1.setForeground(new Color(21, 50, 207));
+		resultatText3_1.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 16));
+		resultatText3_1.setBounds(25, 210, 275, 55);
+		panel_rightdown.add(resultatText3_1);
+		
+		JLabel resultatText3_2 = new JLabel("40h");
+		resultatText3_2.setForeground(new Color(21, 50, 207));
+		resultatText3_2.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 16));
+		resultatText3_2.setBounds(330, 190, 210, 55);
+		panel_rightdown.add(resultatText3_2);
+		
+		JLabel resultatText4 = new JLabel("Date d\u2019entr\u00E9e dans le d\u00E9partement  : ");
+		resultatText4.setForeground(new Color(21, 50, 207));
+		resultatText4.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 16));
+		resultatText4.setBounds(25, 295, 275, 55);
+		panel_rightdown.add(resultatText4);
+		
+		JLabel resultatText4_2 = new JLabel("1 Sept. 2017");
+		resultatText4_2.setForeground(new Color(21, 50, 207));
+		resultatText4_2.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 16));
+		resultatText4_2.setBounds(330, 295, 210, 55);
+		panel_rightdown.add(resultatText4_2);
 		
 		
 		JPanel panel_righttop = new JPanel();
