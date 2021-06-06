@@ -19,6 +19,7 @@ import java.io.IOException;
 import javax.swing.SwingConstants;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
+import javax.swing.JButton;
 
 
 public class page_d_accueil {
@@ -96,9 +97,39 @@ public class page_d_accueil {
 		userLabel.setBounds(20, 20, 170, 170);
 		panel_left.add(userLabel);
 		
-		JLabel lblNewLabel = new JLabel("Pr\u00E9nom NOM");
-		lblNewLabel.setBounds(30, 200, 160, 40);
-		panel_left.add(lblNewLabel);
+		JLabel nameLabel = new JLabel("Pr\u00E9nom NOM");
+		nameLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		nameLabel.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 20));
+		nameLabel.setForeground(new Color(21, 50, 207));
+		nameLabel.setBounds(10, 200, 195, 40);
+		panel_left.add(nameLabel);
+		
+		JLabel telLabel = new JLabel("T\u00E9l : 06 23 12 07 03");
+		telLabel.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
+		telLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		telLabel.setForeground(new Color(21, 50, 207));
+		telLabel.setBounds(10, 245, 195, 30);
+		panel_left.add(telLabel);
+		
+		JLabel mailLabel = new JLabel("Email : prenom.nom@utt.fr");
+		mailLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		mailLabel.setForeground(new Color(21, 50, 207));
+		mailLabel.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
+		mailLabel.setBounds(10, 280, 195, 30);
+		panel_left.add(mailLabel);
+		
+		JLabel depLabel = new JLabel("D\u00E9partement : ISI");
+		depLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		depLabel.setForeground(new Color(21, 50, 207));
+		depLabel.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
+		depLabel.setBounds(10, 315, 195, 30);
+		panel_left.add(depLabel);
+		
+		JButton decButton = new JButton("d\u00E9connection");
+		decButton.setBounds(20, 372, 170, 40);
+		decButton.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 20));
+		decButton.setForeground(new Color(21, 50, 207));
+		panel_left.add(decButton);
 		
 		JPanel panel_right = new JPanel();
 		panel_right.setBounds(214, 110, 672, 503);
@@ -106,6 +137,36 @@ public class page_d_accueil {
 		panel_right.setBackground(new Color(162,203,246));
 		panel_right.setBorder(blackline);
 		panel_right.setLayout(null);
+		
+		JButton gde_Button = new JButton("Gestion des enseignants");
+		gde_Button.setForeground(new Color(21, 50, 207));
+		gde_Button.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 20));
+		gde_Button.setBounds(150, 70, 400, 50);
+		panel_right.add(gde_Button);
+		
+		JButton gde_Button_1 = new JButton("Gestion des enseignants");
+		gde_Button_1.setForeground(new Color(21, 50, 207));
+		gde_Button_1.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 20));
+		gde_Button_1.setBounds(150, 150, 400, 50);
+		panel_right.add(gde_Button_1);
+		
+		JButton gde_Button_2 = new JButton("Gestion des enseignants");
+		gde_Button_2.setForeground(new Color(21, 50, 207));
+		gde_Button_2.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 20));
+		gde_Button_2.setBounds(150, 230, 400, 50);
+		panel_right.add(gde_Button_2);
+		
+		JButton gde_Button_3 = new JButton("Gestion des enseignants");
+		gde_Button_3.setForeground(new Color(21, 50, 207));
+		gde_Button_3.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 20));
+		gde_Button_3.setBounds(150, 310, 400, 50);
+		panel_right.add(gde_Button_3);
+		
+		JButton gde_Button_4 = new JButton("Gestion des enseignants");
+		gde_Button_4.setForeground(new Color(21, 50, 207));
+		gde_Button_4.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 20));
+		gde_Button_4.setBounds(150, 390, 400, 50);
+		panel_right.add(gde_Button_4);
 
 
 
