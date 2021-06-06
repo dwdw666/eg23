@@ -73,7 +73,6 @@ public class page_d_accueil {
 		accueilLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		accueilLabel.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 30));
 		accueilLabel.setForeground(new Color(21, 50, 207));
-
 		accueilLabel.setOpaque(true);
 		accueilLabel.setBackground(new Color(115, 175, 237));
 		accueilLabel.setBounds(243, 30, 400, 40);
@@ -84,6 +83,7 @@ public class page_d_accueil {
 		uttLabel.setIcon(new ImageIcon(getClass().getResource("/Image/UTT.png")));
 		uttLabel.setBounds(10, 10, 210, 90);
 		panel.add(uttLabel);
+		uttLabel.setBorder(blackline);
 		
 		JPanel panel_left = new JPanel();
 		panel_left.setBounds(0, 110, 215, 503);
@@ -142,31 +142,32 @@ public class page_d_accueil {
 		gde_Button.setForeground(new Color(21, 50, 207));
 		gde_Button.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 20));
 		gde_Button.setBounds(150, 70, 400, 50);
+		accueilLabel.setBackground(new Color(115, 175, 237));
 		panel_right.add(gde_Button);
 		
-		JButton gde_Button_1 = new JButton("Gestion des enseignants");
-		gde_Button_1.setForeground(new Color(21, 50, 207));
-		gde_Button_1.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 20));
-		gde_Button_1.setBounds(150, 150, 400, 50);
-		panel_right.add(gde_Button_1);
+		JButton gdu_Button = new JButton("Gestion des UE");
+		gdu_Button.setForeground(new Color(21, 50, 207));
+		gdu_Button.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 20));
+		gdu_Button.setBounds(150, 150, 400, 50);
+		panel_right.add(gdu_Button);
 		
-		JButton gde_Button_2 = new JButton("Gestion des enseignants");
-		gde_Button_2.setForeground(new Color(21, 50, 207));
-		gde_Button_2.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 20));
-		gde_Button_2.setBounds(150, 230, 400, 50);
-		panel_right.add(gde_Button_2);
+		JButton rde_Button = new JButton("R\u00E9partition des \u00E9tudiants");
+		rde_Button.setForeground(new Color(21, 50, 207));
+		rde_Button.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 20));
+		rde_Button.setBounds(150, 230, 400, 50);
+		panel_right.add(rde_Button);
 		
-		JButton gde_Button_3 = new JButton("Gestion des enseignants");
-		gde_Button_3.setForeground(new Color(21, 50, 207));
-		gde_Button_3.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 20));
-		gde_Button_3.setBounds(150, 310, 400, 50);
-		panel_right.add(gde_Button_3);
+		JButton sdf_Button = new JButton("Statistiques des flux");
+		sdf_Button.setForeground(new Color(21, 50, 207));
+		sdf_Button.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 20));
+		sdf_Button.setBounds(150, 310, 400, 50);
+		panel_right.add(sdf_Button);
 		
-		JButton gde_Button_4 = new JButton("Gestion des enseignants");
-		gde_Button_4.setForeground(new Color(21, 50, 207));
-		gde_Button_4.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 20));
-		gde_Button_4.setBounds(150, 390, 400, 50);
-		panel_right.add(gde_Button_4);
+		JButton gds_Button = new JButton("Gestion du semestre en cours");
+		gds_Button.setForeground(new Color(21, 50, 207));
+		gds_Button.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 20));
+		gds_Button.setBounds(150, 390, 400, 50);
+		panel_right.add(gds_Button);
 
 
 
