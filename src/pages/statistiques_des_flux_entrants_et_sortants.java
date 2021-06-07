@@ -25,6 +25,11 @@ import javax.swing.JScrollBar;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.event.AncestorListener;
+
+import common.Frame_warnning;
+import common.LengthFlexLable;
+import common.LinkLabel;
+
 import javax.swing.event.AncestorEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -69,11 +74,11 @@ public class statistiques_des_flux_entrants_et_sortants {
 	 */
 	private void initialize() {
 		Border blackline = BorderFactory.createLineBorder(new Color(21,50,207));
-		frame = new JFrame();
+		frame = new Frame_warnning();
 		frame.setBounds(100, 100, 900, 650);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
+		((Frame_warnning) frame).addListener();  //add close warnning
 		
 		JPanel panel = new JPanel();
 		panel.setBorder(new LineBorder(new Color(0, 0, 0)));
@@ -86,15 +91,15 @@ public class statistiques_des_flux_entrants_et_sortants {
 		JLabel titreLabel = new JLabel("Statistiques des flux entrants et sortants");
 
 		titreLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		titreLabel.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
+		titreLabel.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 25));
 		titreLabel.setForeground(new Color(21, 50, 207));
 		titreLabel.setOpaque(true);
 		titreLabel.setBackground(new Color(115, 175, 237));
-		titreLabel.setBounds(280, 30, 416, 50);
+		titreLabel.setBounds(230, 30, 496, 50);
 		panel.add(titreLabel);
 		titreLabel.setBorder(new LineBorder(new Color(21, 50, 207), 2));
 		
-		JLabel uttLabel = new JLabel();
+		JLabel uttLabel = new LinkLabel("","https://www.utt.fr/");
 		uttLabel.setIcon(new ImageIcon(getClass().getResource("/Image/UTT.png")));
 		uttLabel.setBounds(10, 10, 210, 90);
 		panel.add(uttLabel);
@@ -123,7 +128,7 @@ public class statistiques_des_flux_entrants_et_sortants {
 		JLabel col1_Label = new JLabel("Type");
 		col1_Label.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 20));
 		col1_Label.setHorizontalAlignment(SwingConstants.CENTER);
-		col1_Label.setBounds(10, 23, 80, 40);
+		col1_Label.setBounds(10, 23, 93, 40);
 		col1_Label.setForeground(new Color(21, 50, 207));
 		col1_Label.setOpaque(true);
 		col1_Label.setBackground(new Color(115, 175, 237));
@@ -133,7 +138,7 @@ public class statistiques_des_flux_entrants_et_sortants {
 		JLabel col2_Label = new JLabel(" Nombre");
 		col2_Label.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 20));
 		col2_Label.setHorizontalAlignment(SwingConstants.CENTER);
-		col2_Label.setBounds(90, 23, 80, 40);
+		col2_Label.setBounds(102, 23, 98, 40);
 		col2_Label.setForeground(new Color(21, 50, 207));
 		col2_Label.setOpaque(true);
 		col2_Label.setBackground(new Color(115, 175, 237));
@@ -143,7 +148,7 @@ public class statistiques_des_flux_entrants_et_sortants {
 		JLabel col3_Label = new JLabel("Choix");
 		col3_Label.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 20));
 		col3_Label.setHorizontalAlignment(SwingConstants.CENTER);
-		col3_Label.setBounds(170, 23, 108, 40);
+		col3_Label.setBounds(200, 23, 78, 40);
 		col3_Label.setForeground(new Color(21, 50, 207));
 		col3_Label.setOpaque(true);
 		col3_Label.setBackground(new Color(115, 175, 237));
@@ -155,23 +160,23 @@ public class statistiques_des_flux_entrants_et_sortants {
 		row1_label1.setHorizontalAlignment(SwingConstants.CENTER);
 		row1_label1.setForeground(new Color(21, 50, 207));
 		row1_label1.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
-		row1_label1.setBounds(10, 63, 80, 40);
+		row1_label1.setBounds(10, 63, 93, 55);
 		panel_left.add(row1_label1);
 		row1_label1.setBorder(blackline);
 		
-		JLabel row1_label2 = new LengthFlexLable("13");
+		JLabel row1_label2 = new LengthFlexLable("17");
 		row1_label2.setHorizontalAlignment(SwingConstants.CENTER);
 		row1_label2.setForeground(new Color(21, 50, 207));
 		row1_label2.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
-		row1_label2.setBounds(90, 63, 80, 40);
+		row1_label2.setBounds(102, 63, 98, 55);
 		panel_left.add(row1_label2);
 		row1_label2.setBorder(blackline);
 		
-		JLabel row2_label1 = new LengthFlexLable("Nombre d\u2019\u00E9tudiants r\u00E9orient\u00E9s");
+		JLabel row2_label1 = new LengthFlexLable("Nombre de d\u00E9missionnaires");
 		row2_label1.setHorizontalAlignment(SwingConstants.CENTER);
 		row2_label1.setForeground(new Color(21, 50, 207));
 		row2_label1.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
-		row2_label1.setBounds(10, 103, 80, 40);
+		row2_label1.setBounds(10, 118, 93, 50);
 		panel_left.add(row2_label1);
 		row2_label1.setBorder(blackline);
 		
@@ -179,7 +184,7 @@ public class statistiques_des_flux_entrants_et_sortants {
 		row2_label2.setHorizontalAlignment(SwingConstants.CENTER);
 		row2_label2.setForeground(new Color(21, 50, 207));
 		row2_label2.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
-		row2_label2.setBounds(90, 103, 80, 40);
+		row2_label2.setBounds(102, 118, 98, 50);
 		panel_left.add(row2_label2);
 		row2_label2.setBorder(blackline);
 		
@@ -187,15 +192,15 @@ public class statistiques_des_flux_entrants_et_sortants {
 		row3_label1.setHorizontalAlignment(SwingConstants.CENTER);
 		row3_label1.setForeground(new Color(21, 50, 207));
 		row3_label1.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
-		row3_label1.setBounds(10, 143, 80, 40);
+		row3_label1.setBounds(10, 168, 93, 50);
 		panel_left.add(row3_label1);
 		row3_label1.setBorder(blackline);
 		
-		JLabel row3_label2 = new JLabel("9");
+		JLabel row3_label2 = new JLabel("19");
 		row3_label2.setHorizontalAlignment(SwingConstants.CENTER);
 		row3_label2.setForeground(new Color(21, 50, 207));
 		row3_label2.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
-		row3_label2.setBounds(90, 143, 80, 40);
+		row3_label2.setBounds(102, 168, 98, 50);
 		panel_left.add(row3_label2);
 		row3_label2.setBorder(blackline);
 		
@@ -203,15 +208,15 @@ public class statistiques_des_flux_entrants_et_sortants {
 		row4_label1.setHorizontalAlignment(SwingConstants.CENTER);
 		row4_label1.setForeground(new Color(21, 50, 207));
 		row4_label1.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
-		row4_label1.setBounds(10, 183, 80, 40);
+		row4_label1.setBounds(10, 218, 93, 50);
 		panel_left.add(row4_label1);
 		row4_label1.setBorder(blackline);
 		
-		JLabel row4_label2 = new JLabel("3");
+		JLabel row4_label2 = new JLabel("14");
 		row4_label2.setHorizontalAlignment(SwingConstants.CENTER);
 		row4_label2.setForeground(new Color(21, 50, 207));
 		row4_label2.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
-		row4_label2.setBounds(90, 183, 80, 40);
+		row4_label2.setBounds(102, 218, 98, 50);
 		panel_left.add(row4_label2);
 		row4_label2.setBorder(blackline);
 		
@@ -219,15 +224,15 @@ public class statistiques_des_flux_entrants_et_sortants {
 		row5_label1.setHorizontalAlignment(SwingConstants.CENTER);
 		row5_label1.setForeground(new Color(21, 50, 207));
 		row5_label1.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
-		row5_label1.setBounds(10, 223, 80, 40);
+		row5_label1.setBounds(10, 268, 93, 50);
 		panel_left.add(row5_label1);
 		row5_label1.setBorder(blackline);
 		
-		JLabel row5_label2 = new JLabel("1");
+		JLabel row5_label2 = new JLabel("17");
 		row5_label2.setHorizontalAlignment(SwingConstants.CENTER);
 		row5_label2.setForeground(new Color(21, 50, 207));
 		row5_label2.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
-		row5_label2.setBounds(90, 223, 80, 40);
+		row5_label2.setBounds(102, 268, 98, 50);
 		panel_left.add(row5_label2);
 		row5_label2.setBorder(blackline);
 		
@@ -235,16 +240,15 @@ public class statistiques_des_flux_entrants_et_sortants {
 		row6_label1.setHorizontalAlignment(SwingConstants.CENTER);
 		row6_label1.setForeground(new Color(21, 50, 207));
 		row6_label1.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
-		row6_label1.setBounds(10, 263, 80, 40);
+		row6_label1.setBounds(10, 318, 93, 50);
 		panel_left.add(row6_label1);
 		row6_label1.setBorder(blackline);
 		
-		JLabel row6_label2 = new JLabel("6");
-		
+		JLabel row6_label2 = new JLabel("16");
 		row6_label2.setHorizontalAlignment(SwingConstants.CENTER);
 		row6_label2.setForeground(new Color(21, 50, 207));
 		row6_label2.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
-		row6_label2.setBounds(90, 263, 80, 40);
+		row6_label2.setBounds(102, 318, 98, 50);
 		panel_left.add(row6_label2);
 		row6_label2.setBorder(blackline);
 		
@@ -252,44 +256,29 @@ public class statistiques_des_flux_entrants_et_sortants {
 		row7_label1.setHorizontalAlignment(SwingConstants.CENTER);
 		row7_label1.setForeground(new Color(21, 50, 207));
 		row7_label1.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
-		row7_label1.setBounds(10, 303, 80, 40);
+		row7_label1.setBounds(10, 368, 93, 50);
 		panel_left.add(row7_label1);
 		row7_label1.setBorder(blackline);
 		
-		JLabel row7_label2 = new JLabel("2");
+		JLabel row7_label2 = new JLabel("20");
 		row7_label2.setHorizontalAlignment(SwingConstants.CENTER);
 		row7_label2.setForeground(new Color(21, 50, 207));
 		row7_label2.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
-		row7_label2.setBounds(90, 303, 80, 40);
+		row7_label2.setBounds(102, 368, 98, 50);
 		panel_left.add(row7_label2);
 		row7_label2.setBorder(blackline);
-		
-		JLabel row8_label1 = new LengthFlexLable("Changement de branche \u00AB sortant \u00BB");
-		row8_label1.setHorizontalAlignment(SwingConstants.CENTER);
-		row8_label1.setForeground(new Color(21, 50, 207));
-		row8_label1.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
-		row8_label1.setBounds(10, 343, 80, 40);
-		panel_left.add(row8_label1);
-		row8_label1.setBorder(blackline);
-		
-		JLabel row8_label2 = new JLabel("1");
-		row8_label2.setHorizontalAlignment(SwingConstants.CENTER);
-		row8_label2.setForeground(new Color(21, 50, 207));
-		row8_label2.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
-		row8_label2.setBounds(90, 343, 80, 40);
-		panel_left.add(row8_label2);
-		row8_label2.setBorder(blackline);
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBorder(blackline);
 		panel_1.setBackground(UIManager.getColor("Button.disabledShadow"));
-		panel_1.setBounds(170, 63, 108, 40);
+		panel_1.setBounds(200, 63, 78, 55);
 		panel_left.add(panel_1);
 		panel_1.setLayout(null);
 		
-		JRadioButton rdbtnNewRadioButton_1_1 = new JRadioButton("");
+		JRadioButton rdbtnNewRadioButton_1_1 = new JRadioButton();
+		rdbtnNewRadioButton_1_1.setSelected(true);
 		rdbtnNewRadioButton_1_1.setBackground(UIManager.getColor("Button.disabledShadow"));
-		rdbtnNewRadioButton_1_1.setBounds(41, 10, 21, 21);
+		rdbtnNewRadioButton_1_1.setBounds(30, 16, 21, 21);
 		rdbtnNewRadioButton_1_1.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_1.add(rdbtnNewRadioButton_1_1);
 		
@@ -297,93 +286,79 @@ public class statistiques_des_flux_entrants_et_sortants {
 		panel_1_1.setLayout(null);
 		panel_1_1.setBorder(blackline);
 		panel_1_1.setBackground(UIManager.getColor("Button.disabledShadow"));
-		panel_1_1.setBounds(170, 103, 108, 40);
+		panel_1_1.setBounds(200, 118, 78, 50);
 		panel_left.add(panel_1_1);
 		
 		JRadioButton rdbtnNewRadioButton_1_1_1 = new JRadioButton("");
 		rdbtnNewRadioButton_1_1_1.setHorizontalAlignment(SwingConstants.CENTER);
 		rdbtnNewRadioButton_1_1_1.setBackground(UIManager.getColor("Button.disabledShadow"));
-		rdbtnNewRadioButton_1_1_1.setBounds(41, 10, 21, 21);
+		rdbtnNewRadioButton_1_1_1.setBounds(30, 16, 21, 21);
 		panel_1_1.add(rdbtnNewRadioButton_1_1_1);
 		
 		JPanel panel_1_2 = new JPanel();
 		panel_1_2.setLayout(null);
 		panel_1_2.setBorder(blackline);
 		panel_1_2.setBackground(UIManager.getColor("Button.disabledShadow"));
-		panel_1_2.setBounds(170, 143, 108, 40);
+		panel_1_2.setBounds(200, 168, 78, 50);
 		panel_left.add(panel_1_2);
 		
 		JRadioButton rdbtnNewRadioButton_1_1_2 = new JRadioButton("");
 		rdbtnNewRadioButton_1_1_2.setHorizontalAlignment(SwingConstants.CENTER);
 		rdbtnNewRadioButton_1_1_2.setBackground(UIManager.getColor("Button.disabledShadow"));
-		rdbtnNewRadioButton_1_1_2.setBounds(41, 10, 21, 21);
+		rdbtnNewRadioButton_1_1_2.setBounds(30, 16, 21, 21);
 		panel_1_2.add(rdbtnNewRadioButton_1_1_2);
 		
 		JPanel panel_1_3 = new JPanel();
 		panel_1_3.setLayout(null);
 		panel_1_3.setBorder(blackline);
 		panel_1_3.setBackground(UIManager.getColor("Button.disabledShadow"));
-		panel_1_3.setBounds(170, 183, 108, 40);
+		panel_1_3.setBounds(200, 218, 78, 50);
 		panel_left.add(panel_1_3);
 		
 		JRadioButton rdbtnNewRadioButton_1_1_3 = new JRadioButton("");
 		rdbtnNewRadioButton_1_1_3.setHorizontalAlignment(SwingConstants.CENTER);
 		rdbtnNewRadioButton_1_1_3.setBackground(UIManager.getColor("Button.disabledShadow"));
-		rdbtnNewRadioButton_1_1_3.setBounds(41, 10, 21, 21);
+		rdbtnNewRadioButton_1_1_3.setBounds(30, 16, 21, 21);
 		panel_1_3.add(rdbtnNewRadioButton_1_1_3);
 		
 		JPanel panel_1_4 = new JPanel();
 		panel_1_4.setLayout(null);
 		panel_1_4.setBorder(blackline);
 		panel_1_4.setBackground(UIManager.getColor("Button.disabledShadow"));
-		panel_1_4.setBounds(170, 223, 108, 40);
+		panel_1_4.setBounds(200, 268, 78, 50);
 		panel_left.add(panel_1_4);
 		
 		JRadioButton rdbtnNewRadioButton_1_1_4 = new JRadioButton("");
 		rdbtnNewRadioButton_1_1_4.setHorizontalAlignment(SwingConstants.CENTER);
 		rdbtnNewRadioButton_1_1_4.setBackground(UIManager.getColor("Button.disabledShadow"));
-		rdbtnNewRadioButton_1_1_4.setBounds(41, 10, 21, 21);
+		rdbtnNewRadioButton_1_1_4.setBounds(30, 16, 21, 21);
 		panel_1_4.add(rdbtnNewRadioButton_1_1_4);
 		
 		JPanel panel_1_5 = new JPanel();
 		panel_1_5.setLayout(null);
 		panel_1_5.setBorder(blackline);
 		panel_1_5.setBackground(UIManager.getColor("Button.disabledShadow"));
-		panel_1_5.setBounds(170, 263, 108, 40);
+		panel_1_5.setBounds(200, 318, 78, 50);
 		panel_left.add(panel_1_5);
 		
 		JRadioButton rdbtnNewRadioButton_1_1_5 = new JRadioButton("");
 		rdbtnNewRadioButton_1_1_5.setHorizontalAlignment(SwingConstants.CENTER);
 		rdbtnNewRadioButton_1_1_5.setBackground(UIManager.getColor("Button.disabledShadow"));
-		rdbtnNewRadioButton_1_1_5.setBounds(41, 10, 21, 21);
+		rdbtnNewRadioButton_1_1_5.setBounds(30, 10, 21, 21);
 		panel_1_5.add(rdbtnNewRadioButton_1_1_5);
 		
 		JPanel panel_1_6 = new JPanel();
 		panel_1_6.setLayout(null);
 		panel_1_6.setBorder(blackline);
 		panel_1_6.setBackground(UIManager.getColor("Button.disabledShadow"));
-		panel_1_6.setBounds(170, 303, 108, 40);
+		panel_1_6.setBounds(200, 368, 78, 50);
 		panel_left.add(panel_1_6);
 		
 		JRadioButton rdbtnNewRadioButton_1_1_6 = new JRadioButton("");
 		rdbtnNewRadioButton_1_1_6.setHorizontalAlignment(SwingConstants.CENTER);
 		rdbtnNewRadioButton_1_1_6.setBackground(UIManager.getColor("Button.disabledShadow"));
-		rdbtnNewRadioButton_1_1_6.setBounds(41, 10, 21, 21);
+		rdbtnNewRadioButton_1_1_6.setBounds(30, 16, 21, 21);
 		panel_1_6.add(rdbtnNewRadioButton_1_1_6);
-		
-		JPanel panel_1_7 = new JPanel();
-		panel_1_7.setLayout(null);
-		panel_1_7.setBorder(blackline);
-		panel_1_7.setBackground(UIManager.getColor("Button.disabledShadow"));
-		panel_1_7.setBounds(170, 343, 108, 40);
-		panel_left.add(panel_1_7);
-		
-
-		JRadioButton rdbtnNewRadioButton_1_1_7 = new JRadioButton();
-		rdbtnNewRadioButton_1_1_7.setHorizontalAlignment(SwingConstants.CENTER);
-		rdbtnNewRadioButton_1_1_7.setBackground(UIManager.getColor("Button.disabledShadow"));
-		rdbtnNewRadioButton_1_1_7.setBounds(41, 10, 21, 21);
-		panel_1_7.add(rdbtnNewRadioButton_1_1_7);
 		
 		ButtonGroup group = new ButtonGroup();
 		group.add( rdbtnNewRadioButton_1_1);
@@ -393,7 +368,6 @@ public class statistiques_des_flux_entrants_et_sortants {
 		group.add( rdbtnNewRadioButton_1_1_4);
 		group.add( rdbtnNewRadioButton_1_1_5);
 		group.add( rdbtnNewRadioButton_1_1_6);
-		group.add( rdbtnNewRadioButton_1_1_7);
 		
 		JPanel panel_right = new JPanel();
 		panel_right.setLayout(null);
@@ -549,6 +523,46 @@ public class statistiques_des_flux_entrants_et_sortants {
 		lable_semestre_4_1_1.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
 		lable_semestre_4_1_1.setBounds(470, 470, 96, 30);
 		panel_right.add(lable_semestre_4_1_1);
+		
+		JLabel lblNewLabel = new JLabel("Nombre d\u2019\u00E9tudiants r\u00E9orient\u00E9s");
+		lblNewLabel.setForeground(new Color(21, 50, 207));
+		lblNewLabel.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 20));
+		lblNewLabel.setBounds(26, 10, 474, 30);
+		panel_right.add(lblNewLabel);
+		rdbtnNewRadioButton_1_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				lblNewLabel.setText("Nombre d¡¯¨¦tudiants r¨¦orient¨¦s");
+			}
+		});
+		rdbtnNewRadioButton_1_1_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				lblNewLabel.setText("Nombre de d¨¦missionnaire");
+			}
+		});
+		rdbtnNewRadioButton_1_1_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				lblNewLabel.setText("Nombre de d'admissions TC");
+			}
+		});
+		rdbtnNewRadioButton_1_1_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				lblNewLabel.setText("Nombre de d'admissions IUT");
+			}
+		});
+		rdbtnNewRadioButton_1_1_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				lblNewLabel.setText("Nombre de d'admissions Pr¨¦pa");
+			}
+		});
+		rdbtnNewRadioButton_1_1_5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				lblNewLabel.setText("Changement de branche <<entrant>>");
+			}
+		});
+		rdbtnNewRadioButton_1_1_6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				lblNewLabel.setText("Changement de branche <<sortant>>");
+			}
+		});
 	}
-	
 }

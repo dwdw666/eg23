@@ -13,8 +13,9 @@ public class Person {
 	public String[] ues;
 	public String heure;
 	public String date;
+	public String departement;
 	
-	public Person(int id, String prenom, String nom, String telLabel,String mailLabel,String nameLabel,String typeLabel,String[] ues,String heure,String date) {
+	public Person(int id, String prenom, String nom, String telLabel,String mailLabel,String nameLabel,String typeLabel,String[] ues,String heure,String date,String departement) {
 		this.id = id;
 		this.prenom = prenom;
 		this.nom = nom;
@@ -25,7 +26,9 @@ public class Person {
 		this.ues = ues;
 		this.heure = heure;
 		this.date = date;
+		this.departement = departement;
 	}
+	
 	
 	
 }

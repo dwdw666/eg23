@@ -15,6 +15,10 @@ import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
+
+import common.Frame_warnning;
+import common.LengthFlexLable;
+
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -62,11 +66,11 @@ public class gestion_du_semestre_en_cours {
 	 */
 	private void initialize() {
 		Border blackline = BorderFactory.createLineBorder(new Color(21,50,207));
-		frame = new JFrame();
+		frame = new Frame_warnning();
 		frame.setBounds(100, 100, 900, 650);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
+		((Frame_warnning) frame).addListener();
 		
 		JPanel panel = new JPanel();
 		panel.setBorder(new LineBorder(new Color(0, 0, 0)));
@@ -76,13 +80,13 @@ public class gestion_du_semestre_en_cours {
 		panel.setLayout(null);
 		panel.setBorder(blackline);
 		
-		JLabel titreLabel = new JLabel("Gestion des enseignants");
+		JLabel titreLabel = new JLabel("Gestion du semestre en cours");
 		titreLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		titreLabel.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 30));
 		titreLabel.setForeground(new Color(21, 50, 207));
 		titreLabel.setOpaque(true);
 		titreLabel.setBackground(new Color(115, 175, 237));
-		titreLabel.setBounds(243, 30, 400, 50);
+		titreLabel.setBounds(230, 28, 447, 50);
 		panel.add(titreLabel);
 		titreLabel.setBorder(new LineBorder(new Color(21, 50, 207), 2));
 		
@@ -151,7 +155,7 @@ public class gestion_du_semestre_en_cours {
 		panel_left.add(row1_label1);
 		row1_label1.setBorder(blackline);
 		
-		JLabel row1_label2 = new JLabel("3");
+		JLabel row1_label2 = new JLabel("5");
 		row1_label2.setHorizontalAlignment(SwingConstants.CENTER);
 		row1_label2.setForeground(new Color(21, 50, 207));
 		row1_label2.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
@@ -169,7 +173,7 @@ public class gestion_du_semestre_en_cours {
 		panel_left.add(row2_label1);
 		row2_label1.setBorder(blackline);
 		
-		JLabel row2_label2 = new JLabel("1");
+		JLabel row2_label2 = new JLabel("3");
 		row2_label2.setHorizontalAlignment(SwingConstants.CENTER);
 		row2_label2.setForeground(new Color(21, 50, 207));
 		row2_label2.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
@@ -245,10 +249,10 @@ public class gestion_du_semestre_en_cours {
 		panel_rightdown.setBorder(blackline);
 		panel_rightdown.setLayout(null);
 		
-		JLabel resultatText1 = new JLabel("Des \u00E9tudiants avec leur retard : ");
+		JLabel resultatText1 = new JLabel("Des \u00E9tudiants avec leur retard");
 		resultatText1.setForeground(new Color(21, 50, 207));
 		resultatText1.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 20));
-		resultatText1.setBounds(141, 0, 311, 40);
+		resultatText1.setBounds(20, 10, 428, 40);
 		panel_rightdown.add(resultatText1);
 		
 		JLabel resultatText2 = new JLabel("Pr\u00E9nom NOM");
@@ -293,7 +297,7 @@ public class gestion_du_semestre_en_cours {
 		row1_label1_1_1.setBorder(blackline);
 		panel_rightdown.add(row1_label1_1_1);
 		
-		JLabel row1_label2_1_1 = new JLabel("TM : 0/8");
+		JLabel row1_label2_1_1 = new JLabel("CS : 4/8");
 		row1_label2_1_1.setHorizontalAlignment(SwingConstants.CENTER);
 		row1_label2_1_1.setForeground(new Color(21, 50, 207));
 		row1_label2_1_1.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
@@ -309,7 +313,7 @@ public class gestion_du_semestre_en_cours {
 		row1_label1_1_1_1.setBorder(blackline);
 		panel_rightdown.add(row1_label1_1_1_1);
 		
-		JLabel row1_label2_1_1_1 = new JLabel("TM : 0/8");
+		JLabel row1_label2_1_1_1 = new JLabel("TM : 6/8");
 		row1_label2_1_1_1.setHorizontalAlignment(SwingConstants.CENTER);
 		row1_label2_1_1_1.setForeground(new Color(21, 50, 207));
 		row1_label2_1_1_1.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
@@ -356,7 +360,7 @@ public class gestion_du_semestre_en_cours {
 		col2_Label_1_1.setBorder(blackline);
 		panel_rightdown.add(col2_Label_1_1);
 		
-		JLabel row1_label2_1_1_2 = new JLabel("TM : 0/8");
+		JLabel row1_label2_1_1_2 = new JLabel("CS : 4/8");
 		row1_label2_1_1_2.setHorizontalAlignment(SwingConstants.CENTER);
 		row1_label2_1_1_2.setForeground(new Color(21, 50, 207));
 		row1_label2_1_1_2.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
@@ -372,7 +376,7 @@ public class gestion_du_semestre_en_cours {
 		row1_label1_1_1_1_1.setBorder(blackline);
 		panel_rightdown.add(row1_label1_1_1_1_1);
 		
-		JLabel row1_label2_1_1_1_1 = new JLabel("TM : 0/8");
+		JLabel row1_label2_1_1_1_1 = new JLabel("TM : 8/8");
 		row1_label2_1_1_1_1.setHorizontalAlignment(SwingConstants.CENTER);
 		row1_label2_1_1_1_1.setForeground(new Color(21, 50, 207));
 		row1_label2_1_1_1_1.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
@@ -420,7 +424,7 @@ public class gestion_du_semestre_en_cours {
 		col2_Label_1_2.setBorder(blackline);
 		panel_rightdown.add(col2_Label_1_2);
 		
-		JLabel row1_label2_1_1_3 = new JLabel("TM : 0/8");
+		JLabel row1_label2_1_1_3 = new JLabel("CS : 6/8");
 		row1_label2_1_1_3.setHorizontalAlignment(SwingConstants.CENTER);
 		row1_label2_1_1_3.setForeground(new Color(21, 50, 207));
 		row1_label2_1_1_3.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
@@ -436,7 +440,7 @@ public class gestion_du_semestre_en_cours {
 		row1_label1_1_1_1_2.setBorder(blackline);
 		panel_rightdown.add(row1_label1_1_1_1_2);
 		
-		JLabel row1_label2_1_1_1_2 = new JLabel("TM : 0/8");
+		JLabel row1_label2_1_1_1_2 = new JLabel("TM : 6/8");
 		row1_label2_1_1_1_2.setHorizontalAlignment(SwingConstants.CENTER);
 		row1_label2_1_1_1_2.setForeground(new Color(21, 50, 207));
 		row1_label2_1_1_1_2.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
@@ -462,5 +466,43 @@ public class gestion_du_semestre_en_cours {
 		row1_button_2_1_2.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 20));
 		row1_button_2_1_2.setBounds(440, 439, 150, 30);
 		panel_rightdown.add(row1_button_2_1_2);
+
+		rdbtnNewRadioButton_1_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				resultatText1.setText("Des ¨¦tudiants avec leur retard");
+				row1_label2_1_1.setText("CS : 4/8");
+				row1_label2_1_1_1.setText("TM : 6/8");
+				row1_label2_1_1_2.setText("CS : 4/8");
+				row1_label2_1_1_1_1.setText("TM : 8/8");
+				row1_label2_1_1_3.setText("CS : 6/8");
+				row1_label2_1_1_1_1.setText("TM : 6/8");
+			}
+		});
+
+		rdbtnNewRadioButton_1_1_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				resultatText1.setText("Des ¨¦tudiants dont le retard est critique");
+				row1_label2_1_1.setText("CS : 0/8");
+				row1_label2_1_1_1.setText("TM : 0/8");
+				row1_label2_1_1_2.setText("CS : 0/8");
+				row1_label2_1_1_1_1.setText("TM : 0/8");
+				row1_label2_1_1_3.setText("CS : 0/8");
+				row1_label2_1_1_1_1.setText("TM : 0/8");
+				
+				
+			}
+		});
+
+		rdbtnNewRadioButton_1_1_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				resultatText1.setText("Des ¨¦tudiants candidats ¨¤ l'excellence");
+				row1_label2_1_1.setText("CS : 8/8");
+				row1_label2_1_1_1.setText("TM : 8/8");
+				row1_label2_1_1_2.setText("CS : 8/8");
+				row1_label2_1_1_1_1.setText("TM : 8/8");
+				row1_label2_1_1_3.setText("CS : 8/8");
+				row1_label2_1_1_1_1.setText("TM : 8/8");
+			}
+		});
 	}
 }

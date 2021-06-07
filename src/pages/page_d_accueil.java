@@ -13,9 +13,17 @@ import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
+
+import common.Frame_warnning;
+import common.LinkLabel;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.event.AncestorListener;
+import javax.swing.event.AncestorEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 
 public class page_d_accueil {
@@ -56,14 +64,12 @@ public class page_d_accueil {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		
-		
-		
 		Border blackline = BorderFactory.createLineBorder(new Color(21,50,207));
-		frame = new JFrame();
+		frame = new Frame_warnning();
 		frame.setBounds(100, 100, 900, 650);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		((Frame_warnning) frame).addListener();
 		
 		JPanel panel = new JPanel();
 		panel.setBorder(new LineBorder(new Color(0, 0, 0)));
@@ -83,14 +89,14 @@ public class page_d_accueil {
 		panel.add(accueilLabel);
 		accueilLabel.setBorder(new LineBorder(new Color(21, 50, 207), 2));
 		
-		JLabel uttLabel = new JLabel();
+		JLabel uttLabel = new LinkLabel("","https://www.utt.fr/");
 		uttLabel.setIcon(new ImageIcon(getClass().getResource("/Image/UTT.png")));
 		uttLabel.setBounds(10, 10, 210, 90);
 		panel.add(uttLabel);
 		uttLabel.setBorder(blackline);
 		
 		JPanel panel_left = new JPanel();
-		panel_left.setBounds(0, 110, 215, 503);
+		panel_left.setBounds(0, 110, 273, 503);
 		frame.getContentPane().add(panel_left);
 		panel_left.setBackground(new Color(162,203,246));
 		panel_left.setBorder(blackline);
@@ -98,35 +104,35 @@ public class page_d_accueil {
 		
 		JLabel userLabel = new JLabel();
 		userLabel.setIcon(new ImageIcon(getClass().getResource("/Image/user.png")));
-		userLabel.setBounds(45, 45, 120, 120);
+		userLabel.setBounds(74, 71, 120, 120);
 		panel_left.add(userLabel);
 		
-		JLabel nameLabel = new JLabel("Pr\u00E9nom NOM");
+		JLabel nameLabel = new JLabel("Jean-Marc Nigro");
 		nameLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		nameLabel.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 20));
 		nameLabel.setForeground(new Color(21, 50, 207));
-		nameLabel.setBounds(10, 200, 195, 40);
+		nameLabel.setBounds(37, 201, 195, 40);
 		panel_left.add(nameLabel);
 		
-		JLabel telLabel = new JLabel("T\u00E9l : 06 23 12 07 03");
+		JLabel telLabel = new JLabel("T\u00E9l : xx xx xx xx xx");
 		telLabel.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
 		telLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		telLabel.setForeground(new Color(21, 50, 207));
-		telLabel.setBounds(10, 245, 195, 30);
+		telLabel.setBounds(37, 246, 195, 30);
 		panel_left.add(telLabel);
 		
-		JLabel mailLabel = new JLabel("Email : prenom.nom@utt.fr");
+		JLabel mailLabel = new JLabel("Email : jean_marc.nigro@utt.fr");
 		mailLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		mailLabel.setForeground(new Color(21, 50, 207));
 		mailLabel.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
-		mailLabel.setBounds(10, 280, 195, 30);
+		mailLabel.setBounds(10, 275, 242, 30);
 		panel_left.add(mailLabel);
 		
 		JLabel depLabel = new JLabel("D\u00E9partement : ISI");
 		depLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		depLabel.setForeground(new Color(21, 50, 207));
 		depLabel.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
-		depLabel.setBounds(10, 315, 195, 30);
+		depLabel.setBounds(37, 315, 195, 30);
 		panel_left.add(depLabel);
 		
 		JButton decButton = new JButton("d\u00E9connection");
@@ -137,13 +143,13 @@ public class page_d_accueil {
 				login.run();
 			}
 		});
-		decButton.setBounds(20, 372, 170, 40);
+		decButton.setBounds(45, 372, 187, 40);
 		decButton.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 20));
 		decButton.setForeground(new Color(21, 50, 207));
 		panel_left.add(decButton);
 		
 		JPanel panel_right = new JPanel();
-		panel_right.setBounds(214, 110, 672, 503);
+		panel_right.setBounds(273, 110, 613, 503);
 		frame.getContentPane().add(panel_right);
 		panel_right.setBackground(new Color(162,203,246));
 		panel_right.setBorder(blackline);
@@ -159,7 +165,7 @@ public class page_d_accueil {
 		});
 		gde_Button.setForeground(new Color(21, 50, 207));
 		gde_Button.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 20));
-		gde_Button.setBounds(150, 70, 400, 50);
+		gde_Button.setBounds(114, 71, 400, 50);
 		accueilLabel.setBackground(new Color(115, 175, 237));
 		panel_right.add(gde_Button);
 		
@@ -173,7 +179,7 @@ public class page_d_accueil {
 		});
 		gdu_Button.setForeground(new Color(21, 50, 207));
 		gdu_Button.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 20));
-		gdu_Button.setBounds(150, 150, 400, 50);
+		gdu_Button.setBounds(114, 150, 400, 50);
 		panel_right.add(gdu_Button);
 		
 		JButton rde_Button = new JButton("R\u00E9partition des \u00E9tudiants");
@@ -186,7 +192,7 @@ public class page_d_accueil {
 		});
 		rde_Button.setForeground(new Color(21, 50, 207));
 		rde_Button.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 20));
-		rde_Button.setBounds(150, 230, 400, 50);
+		rde_Button.setBounds(114, 230, 400, 50);
 		panel_right.add(rde_Button);
 		
 		JButton sdf_Button = new JButton("Statistiques des flux");
@@ -199,7 +205,7 @@ public class page_d_accueil {
 		});
 		sdf_Button.setForeground(new Color(21, 50, 207));
 		sdf_Button.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 20));
-		sdf_Button.setBounds(150, 310, 400, 50);
+		sdf_Button.setBounds(114, 310, 400, 50);
 		panel_right.add(sdf_Button);
 		
 		JButton gds_Button = new JButton("Gestion du semestre en cours");
@@ -212,7 +218,7 @@ public class page_d_accueil {
 		});
 		gds_Button.setForeground(new Color(21, 50, 207));
 		gds_Button.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 20));
-		gds_Button.setBounds(150, 390, 400, 50);
+		gds_Button.setBounds(114, 390, 400, 50);
 		panel_right.add(gds_Button);
 
 

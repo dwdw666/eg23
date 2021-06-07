@@ -1,4 +1,4 @@
-package pages;
+package common;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 

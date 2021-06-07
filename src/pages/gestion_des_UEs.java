@@ -6,6 +6,7 @@ import java.awt.Font;
 
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -15,6 +16,12 @@ import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
+
+import common.DataBase;
+import common.Frame_warnning;
+import common.LinkLabel;
+import common.Person;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -22,7 +29,7 @@ import java.awt.event.ActionEvent;
 public class gestion_des_UEs {
 
 	private JFrame frame;
-
+	private DataBase database;
 	/**
 	 * Launch the application.
 	 */
@@ -53,17 +60,29 @@ public class gestion_des_UEs {
 	public gestion_des_UEs() {
 		initialize();
 	}
+	public void initDataBase() {
+		Person person1 = new Person(1, "Taojun", "Wang","Tel : 12 34 55 66 66","Email : taojun.wang@utt.fr","Taojun Wang","Professeur",new String[] {"LO12", "EG23", "LO02"} ,"80","1 Sept. 2017","LO02");
+		Person person2 = new Person(2, "Zhengyang", "Su","Tel : 98 88 88 88 88","Email : zhengyang.su@utt.fr","Zhengyang Su","Contractuel",new String[] {"NF16", "LO12", "LO02"} ,"40","16 Sept. 2017","NF16");
+		Person person3 = new Person(3, "San", "Zhang","Tel : 16 88 88 88 88","Email : zhengyang.su@utt.fr","San Zhang","Contractuel",new String[] {"LO14", "LO07", "LO02"} ,"60","20 Sept. 2015","LO14");
+		Person person4 = new Person(4, "Si", "Li","Tel : 18 67 49 60 74","Email : si.li@utt.fr","Si Li","Professeur",new String[] {"EG23", "IF29", "GL02"} ,"40","1 Fev. 2018","EG23");
+		Person person5 = new Person(5, "Wu", "Wang","Tel : 28 75 73 92 75","Email : wang.wu@utt.fr","Wu Wang","Prag",new String[] {"LO12", "NF16", "IF29"} ,"10","1 Sept. 2020","LO12");
+		Person person6 = new Person(6, "Liu", "Xiao","Tel : 27 58 96 27 86","Email : liu.xiao@utt.fr","Liu Xiao","Contractuel",new String[] {"IF29", "EG23", "LO12"} ,"50","13 Fev. 2016","IF29");
+		Person person7 = new Person(7, "Qiang", "Xu","Tel : 17 84 95 37 59","Email : qiang.xu@utt.fr","Qiang Xu","Professeur",new String[] {"LO07", "NF16", "LO14"} ,"40","11 Sept. 2017","LO07");
+		Person person8 = new Person(8, "Wei", "Zhang","Tel : 16 94 73 58 16","Email : wei.zhang@utt.fr","Wei Zhang","Contractuel",new String[] {"GL02", "LO12", "IF29"} ,"5","16 Sept. 2020","GL02");
+		this.database = new DataBase(person1 ,person2, person3, person4, person5, person6, person7, person8);
+	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		initDataBase();
 		Border blackline = BorderFactory.createLineBorder(new Color(21,50,207));
-		frame = new JFrame();
+		frame = new Frame_warnning();
 		frame.setBounds(100, 100, 900, 650);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
+		((Frame_warnning) frame).addListener();
 		
 		JPanel panel = new JPanel();
 		panel.setBorder(new LineBorder(new Color(0, 0, 0)));
@@ -83,7 +102,7 @@ public class gestion_des_UEs {
 		panel.add(titreLabel);
 		titreLabel.setBorder(new LineBorder(new Color(21, 50, 207), 2));
 		
-		JLabel uttLabel = new JLabel();
+		JLabel uttLabel = new LinkLabel("","https://www.utt.fr/");
 		uttLabel.setIcon(new ImageIcon(getClass().getResource("/Image/UTT.png")));
 		uttLabel.setBounds(10, 10, 210, 90);
 		panel.add(uttLabel);
@@ -329,21 +348,20 @@ public class gestion_des_UEs {
 		userLabel.setIcon(new ImageIcon(getClass().getResource("/Image/user.png")));
 		panel_righttop.add(userLabel);
 		
-		JLabel nameLabel = new JLabel("Pr\u00E9nom NOM");
-		nameLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		JLabel nameLabel = new JLabel("Taojun Wang");
 		nameLabel.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 30));
 		nameLabel.setForeground(new Color(21, 50, 207));
-		nameLabel.setBounds(170, 50, 195, 40);
+		nameLabel.setBounds(170, 50, 252, 40);
 		panel_righttop.add(nameLabel);
 		
-		JLabel telLabel = new JLabel("T\u00E9l : 06 23 12 07 03");
+		JLabel telLabel = new JLabel("Tel : 12 34 55 66 66");
 		telLabel.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
 		telLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		telLabel.setForeground(new Color(21, 50, 207));
 		telLabel.setBounds(170, 90, 150, 30);
 		panel_righttop.add(telLabel);
 		
-		JLabel mailLabel = new JLabel("Email : prenom.nom@utt.fr");
+		JLabel mailLabel = new JLabel("Email : taojun.wang@utt.fr");
 		mailLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		mailLabel.setForeground(new Color(21, 50, 207));
 		mailLabel.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
@@ -353,13 +371,86 @@ public class gestion_des_UEs {
 		JButton row1_button_1 = new JButton("Contactez-le");
 		row1_button_1.setForeground(new Color(21, 50, 207));
 		row1_button_1.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
-		row1_button_1.setBounds(375, 50, 150, 40);
+		row1_button_1.setBounds(446, 50, 150, 40);
 		panel_righttop.add(row1_button_1);
 		
-		JLabel lblResponsableDeEg = new JLabel("Responsable de EG23");
-		lblResponsableDeEg.setForeground(new Color(21, 50, 207));
-		lblResponsableDeEg.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 20));
-		lblResponsableDeEg.setBounds(170, 15, 210, 30);
-		panel_righttop.add(lblResponsableDeEg);
+		JLabel lblResponsable = new JLabel("Responsable de LO02");
+		lblResponsable.setForeground(new Color(21, 50, 207));
+		lblResponsable.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 20));
+		lblResponsable.setBounds(170, 15, 210, 30);
+		panel_righttop.add(lblResponsable);
+
+		rdbtnNewRadioButton_1_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Person person = database.getPerson(1);
+				nameLabel.setText(person.nameLabel);
+				telLabel.setText(person.telLabel);
+				mailLabel.setText(person.mailLabel);
+				lblResponsable.setText("Responsable de "+person.departement);
+			}
+		});
+		rdbtnNewRadioButton_1_1_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Person person = database.getPerson(2);
+				nameLabel.setText(person.nameLabel);
+				telLabel.setText(person.telLabel);
+				mailLabel.setText(person.mailLabel);
+				lblResponsable.setText("Responsable de "+person.departement);
+			}
+		});
+		rdbtnNewRadioButton_1_1_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Person person = database.getPerson(3);
+				nameLabel.setText(person.nameLabel);
+				telLabel.setText(person.telLabel);
+				mailLabel.setText(person.mailLabel);
+				lblResponsable.setText("Responsable de "+person.departement);
+			}
+		});
+		rdbtnNewRadioButton_1_1_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Person person = database.getPerson(4);
+				nameLabel.setText(person.nameLabel);
+				telLabel.setText(person.telLabel);
+				mailLabel.setText(person.mailLabel);
+				lblResponsable.setText("Responsable de "+person.departement);
+			}
+		});
+		rdbtnNewRadioButton_1_1_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Person person = database.getPerson(5);
+				nameLabel.setText(person.nameLabel);
+				telLabel.setText(person.telLabel);
+				mailLabel.setText(person.mailLabel);
+				lblResponsable.setText("Responsable de "+person.departement);
+			}
+		});
+		rdbtnNewRadioButton_1_1_5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Person person = database.getPerson(6);
+				nameLabel.setText(person.nameLabel);
+				telLabel.setText(person.telLabel);
+				mailLabel.setText(person.mailLabel);
+				lblResponsable.setText("Responsable de "+person.departement);
+			}
+		});
+		rdbtnNewRadioButton_1_1_6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Person person = database.getPerson(7);
+				nameLabel.setText(person.nameLabel);
+				telLabel.setText(person.telLabel);
+				mailLabel.setText(person.mailLabel);
+				lblResponsable.setText("Responsable de "+person.departement);
+			}
+		});
+		rdbtnNewRadioButton_1_1_7.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Person person = database.getPerson(8);
+				nameLabel.setText(person.nameLabel);
+				telLabel.setText(person.telLabel);
+				mailLabel.setText(person.mailLabel);
+				lblResponsable.setText("Responsable de "+person.departement);
+			}
+		});
 	}
 }

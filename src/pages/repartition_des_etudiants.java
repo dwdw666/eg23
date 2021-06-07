@@ -14,6 +14,10 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
+
+import common.Frame_warnning;
+import common.LinkLabel;
+
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
@@ -63,11 +67,11 @@ public class repartition_des_etudiants {
 	 */
 	private void initialize() {
 		Border blackline = BorderFactory.createLineBorder(new Color(21,50,207));
-		frame = new JFrame();
+		frame = new Frame_warnning();
 		frame.setBounds(100, 100, 900, 650);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
+		((Frame_warnning) frame).addListener(); //add close warnning  
 		
 		JPanel panel = new JPanel();
 		panel.setBorder(new LineBorder(new Color(0, 0, 0)));
@@ -87,7 +91,7 @@ public class repartition_des_etudiants {
 		panel.add(titreLabel);
 		titreLabel.setBorder(blackline);
 		
-		JLabel uttLabel = new JLabel();
+		JLabel uttLabel = new LinkLabel("","https://www.utt.fr/");
 		uttLabel.setIcon(new ImageIcon(getClass().getResource("/Image/UTT.png")));
 		uttLabel.setBounds(10, 10, 210, 90);
 		panel.add(uttLabel);

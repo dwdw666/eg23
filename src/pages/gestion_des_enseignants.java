@@ -15,6 +15,8 @@ import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 
 import common.DataBase;
+import common.Frame_warnning;
+import common.LinkLabel;
 import common.Person;
 
 import javax.swing.JTextField;
@@ -24,6 +26,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JRadioButton;
 import javax.swing.UIManager;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
 public class gestion_des_enseignants {
@@ -31,22 +34,11 @@ public class gestion_des_enseignants {
 	private JFrame frame;
 	private JTextField textField;
 	private DataBase database;
-
+	private ArrayList<JRadioButton> radioButtonGroup;
+//	private JLabel nameLabel
 	/**
 	 * Launch the application.
 	 */
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					gestion_des_enseignants window = new gestion_des_enseignants();
-//					window.frame.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
 	public void run() {
 		try {
 			gestion_des_enseignants window = new gestion_des_enseignants();
@@ -67,20 +59,25 @@ public class gestion_des_enseignants {
 	 * Initialize the contents of the frame.
 	 */
 	public void initDataBase() {
-		Person person1 = new Person(1, "Taojun", "Wang","1234556666","taojun.wang@utt.fr","Taojun Wang","Professeur",new String[] {"LO12", "EG23", "LO02"} ,"80","1 Sept. 2017");
-		Person person2 = new Person(2, "Zhengyang", "Su","9888888888","zhengyang.su@utt.fr","Zhengyang Su","Contractuel",new String[] {"LO14", "LO12", "LO02"} ,"40","16 Sept. 2017");
-		
-		this.database = new DataBase(person1 ,person2);
+		Person person1 = new Person(1, "Taojun", "Wang","Tel : 12 34 55 66 66","Email : taojun.wang@utt.fr","Taojun Wang","Professeur",new String[] {"LO12", "EG23", "LO02"} ,"80","1 Sept. 2017","LO02");
+		Person person2 = new Person(2, "Zhengyang", "Su","Tel : 98 88 88 88 88","Email : zhengyang.su@utt.fr","Zhengyang Su","Contractuel",new String[] {"NF16", "LO12", "LO02"} ,"40","16 Sept. 2017","NF16");
+		Person person3 = new Person(3, "San", "Zhang","Tel : 16 88 88 88 88","Email : zhengyang.su@utt.fr","San Zhang","Contractuel",new String[] {"LO14", "LO07", "LO02"} ,"60","20 Sept. 2015","LO14");
+		Person person4 = new Person(4, "Si", "Li","Tel : 18 67 49 60 74","Email : si.li@utt.fr","Si Li","Professeur",new String[] {"EG23", "IF29", "GL02"} ,"40","1 Fev. 2018","EG23");
+		Person person5 = new Person(5, "Wu", "Wang","Tel : 28 75 73 92 75","Email : wang.wu@utt.fr","Wu Wang","Prag",new String[] {"LO12", "NF16", "IF29"} ,"10","1 Sept. 2020","LO12");
+		Person person6 = new Person(6, "Liu", "Xiao","Tel : 27 58 96 27 86","Email : liu.xiao@utt.fr","Liu Xiao","Contractuel",new String[] {"IF29", "EG23", "LO12"} ,"50","13 Fev. 2016","IF29");
+		Person person7 = new Person(7, "Qiang", "Xu","Tel : 17 84 95 37 59","Email : qiang.xu@utt.fr","Qiang Xu","Professeur",new String[] {"LO07", "NF16", "LO14"} ,"40","11 Sept. 2017","LO07");
+		Person person8 = new Person(8, "Wei", "Zhang","Tel : 16 94 73 58 16","Email : wei.zhang@utt.fr","Wei Zhang","Contractuel",new String[] {"GL02", "LO12", "IF29"} ,"5","16 Sept. 2020","GL02");
+		this.database = new DataBase(person1 ,person2, person3, person4, person5, person6, person7, person8);
 	}
 	private void initialize() {
 		
 		initDataBase();
 		Border blackline = BorderFactory.createLineBorder(new Color(21,50,207));
-		frame = new JFrame();
+		frame = new Frame_warnning();
 		frame.setBounds(100, 100, 900, 650);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
+		((Frame_warnning) frame).addListener(); //add close warnning  
 		
 		JPanel panel = new JPanel();
 		panel.setBorder(new LineBorder(new Color(0, 0, 0)));
@@ -100,7 +97,7 @@ public class gestion_des_enseignants {
 		panel.add(titreLabel);
 		titreLabel.setBorder(new LineBorder(new Color(21, 50, 207), 2));
 		
-		JLabel uttLabel = new JLabel();
+		JLabel uttLabel = new LinkLabel("","https://www.utt.fr/");
 		uttLabel.setIcon(new ImageIcon(getClass().getResource("/Image/UTT.png")));
 		uttLabel.setBounds(10, 10, 210, 90);
 		panel.add(uttLabel);
@@ -170,7 +167,7 @@ public class gestion_des_enseignants {
 		col3_Label.setBorder(blackline);
 		
 		//les datas et choisir button
-		JLabel row1_label1 = new JLabel("Pr\u00E9nom1");
+		JLabel row1_label1 = new JLabel("Taojun");
 		row1_label1.setHorizontalAlignment(SwingConstants.CENTER);
 		row1_label1.setForeground(new Color(21, 50, 207));
 		row1_label1.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
@@ -178,7 +175,7 @@ public class gestion_des_enseignants {
 		panel_left.add(row1_label1);
 		row1_label1.setBorder(blackline);
 		
-		JLabel row1_label2 = new JLabel("Nom1");
+		JLabel row1_label2 = new JLabel("Wang");
 		row1_label2.setHorizontalAlignment(SwingConstants.CENTER);
 		row1_label2.setForeground(new Color(21, 50, 207));
 		row1_label2.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
@@ -186,7 +183,7 @@ public class gestion_des_enseignants {
 		panel_left.add(row1_label2);
 		row1_label2.setBorder(blackline);
 		
-		JLabel row2_label1 = new JLabel("Pr\u00E9nom2");
+		JLabel row2_label1 = new JLabel("Zhengyang");
 		row2_label1.setHorizontalAlignment(SwingConstants.CENTER);
 		row2_label1.setForeground(new Color(21, 50, 207));
 		row2_label1.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
@@ -194,7 +191,7 @@ public class gestion_des_enseignants {
 		panel_left.add(row2_label1);
 		row2_label1.setBorder(blackline);
 		
-		JLabel row2_label2 = new JLabel("Nom2");
+		JLabel row2_label2 = new JLabel("Su");
 		row2_label2.setHorizontalAlignment(SwingConstants.CENTER);
 		row2_label2.setForeground(new Color(21, 50, 207));
 		row2_label2.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
@@ -202,7 +199,7 @@ public class gestion_des_enseignants {
 		panel_left.add(row2_label2);
 		row2_label2.setBorder(blackline);
 		
-		JLabel row3_label1 = new JLabel("Pr\u00E9nom3");
+		JLabel row3_label1 = new JLabel("San");
 		row3_label1.setHorizontalAlignment(SwingConstants.CENTER);
 		row3_label1.setForeground(new Color(21, 50, 207));
 		row3_label1.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
@@ -210,7 +207,7 @@ public class gestion_des_enseignants {
 		panel_left.add(row3_label1);
 		row3_label1.setBorder(blackline);
 		
-		JLabel row3_label2 = new JLabel("Nom3");
+		JLabel row3_label2 = new JLabel("Zhang");
 		row3_label2.setHorizontalAlignment(SwingConstants.CENTER);
 		row3_label2.setForeground(new Color(21, 50, 207));
 		row3_label2.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
@@ -218,7 +215,7 @@ public class gestion_des_enseignants {
 		panel_left.add(row3_label2);
 		row3_label2.setBorder(blackline);
 		
-		JLabel row4_label1 = new JLabel("Pr\u00E9nom4");
+		JLabel row4_label1 = new JLabel("Si");
 		row4_label1.setHorizontalAlignment(SwingConstants.CENTER);
 		row4_label1.setForeground(new Color(21, 50, 207));
 		row4_label1.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
@@ -226,7 +223,7 @@ public class gestion_des_enseignants {
 		panel_left.add(row4_label1);
 		row4_label1.setBorder(blackline);
 		
-		JLabel row4_label2 = new JLabel("Nom4");
+		JLabel row4_label2 = new JLabel("Li");
 		row4_label2.setHorizontalAlignment(SwingConstants.CENTER);
 		row4_label2.setForeground(new Color(21, 50, 207));
 		row4_label2.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
@@ -234,7 +231,7 @@ public class gestion_des_enseignants {
 		panel_left.add(row4_label2);
 		row4_label2.setBorder(blackline);
 		
-		JLabel row5_label1 = new JLabel("Pr\u00E9nom5");
+		JLabel row5_label1 = new JLabel("Wu");
 		row5_label1.setHorizontalAlignment(SwingConstants.CENTER);
 		row5_label1.setForeground(new Color(21, 50, 207));
 		row5_label1.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
@@ -242,7 +239,7 @@ public class gestion_des_enseignants {
 		panel_left.add(row5_label1);
 		row5_label1.setBorder(blackline);
 		
-		JLabel row5_label2 = new JLabel("Nom5");
+		JLabel row5_label2 = new JLabel("Wang");
 		row5_label2.setHorizontalAlignment(SwingConstants.CENTER);
 		row5_label2.setForeground(new Color(21, 50, 207));
 		row5_label2.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
@@ -250,7 +247,7 @@ public class gestion_des_enseignants {
 		panel_left.add(row5_label2);
 		row5_label2.setBorder(blackline);
 		
-		JLabel row6_label1 = new JLabel("Pr\u00E9nom6");
+		JLabel row6_label1 = new JLabel("Liu");
 		row6_label1.setHorizontalAlignment(SwingConstants.CENTER);
 		row6_label1.setForeground(new Color(21, 50, 207));
 		row6_label1.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
@@ -258,7 +255,7 @@ public class gestion_des_enseignants {
 		panel_left.add(row6_label1);
 		row6_label1.setBorder(blackline);
 		
-		JLabel row6_label2 = new JLabel("Nom6");
+		JLabel row6_label2 = new JLabel("Xiao");
 		row6_label2.setHorizontalAlignment(SwingConstants.CENTER);
 		row6_label2.setForeground(new Color(21, 50, 207));
 		row6_label2.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
@@ -266,7 +263,7 @@ public class gestion_des_enseignants {
 		panel_left.add(row6_label2);
 		row6_label2.setBorder(blackline);
 		
-		JLabel row7_label1 = new JLabel("Pr\u00E9nom7");
+		JLabel row7_label1 = new JLabel("Qiang");
 		row7_label1.setHorizontalAlignment(SwingConstants.CENTER);
 		row7_label1.setForeground(new Color(21, 50, 207));
 		row7_label1.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
@@ -274,7 +271,7 @@ public class gestion_des_enseignants {
 		panel_left.add(row7_label1);
 		row7_label1.setBorder(blackline);
 		
-		JLabel row7_label2 = new JLabel("Nom7");
+		JLabel row7_label2 = new JLabel("Xu");
 		row7_label2.setHorizontalAlignment(SwingConstants.CENTER);
 		row7_label2.setForeground(new Color(21, 50, 207));
 		row7_label2.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
@@ -282,7 +279,7 @@ public class gestion_des_enseignants {
 		panel_left.add(row7_label2);
 		row7_label2.setBorder(blackline);
 		
-		JLabel row8_label1 = new JLabel("Pr\u00E9nom8");
+		JLabel row8_label1 = new JLabel("Wei");
 		row8_label1.setHorizontalAlignment(SwingConstants.CENTER);
 		row8_label1.setForeground(new Color(21, 50, 207));
 		row8_label1.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
@@ -290,7 +287,7 @@ public class gestion_des_enseignants {
 		panel_left.add(row8_label1);
 		row8_label1.setBorder(blackline);
 		
-		JLabel row8_label2 = new JLabel("Nom8");
+		JLabel row8_label2 = new JLabel("Zhang");
 		row8_label2.setHorizontalAlignment(SwingConstants.CENTER);
 		row8_label2.setForeground(new Color(21, 50, 207));
 		row8_label2.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
@@ -311,7 +308,9 @@ public class gestion_des_enseignants {
 		panel_left.add(panel_1);
 		panel_1.setLayout(null);
 		
-		JRadioButton rdbtnNewRadioButton_1_1 = new JRadioButton("");
+		JRadioButton rdbtnNewRadioButton_1_1 = new JRadioButton();
+		rdbtnNewRadioButton_1_1.setSelected(true);
+		
 		rdbtnNewRadioButton_1_1.setBackground(UIManager.getColor("Button.disabledShadow"));
 		rdbtnNewRadioButton_1_1.setBounds(41, 10, 21, 21);
 		rdbtnNewRadioButton_1_1.setHorizontalAlignment(SwingConstants.CENTER);
@@ -419,6 +418,17 @@ public class gestion_des_enseignants {
 		group.add( rdbtnNewRadioButton_1_1_6);
 		group.add( rdbtnNewRadioButton_1_1_7);
 		
+		//add all radio buttons to the list by order
+		radioButtonGroup = new ArrayList<JRadioButton>();
+		radioButtonGroup.add( rdbtnNewRadioButton_1_1);
+		radioButtonGroup.add( rdbtnNewRadioButton_1_1_1);
+		radioButtonGroup.add( rdbtnNewRadioButton_1_1_2);
+		radioButtonGroup.add( rdbtnNewRadioButton_1_1_3);
+		radioButtonGroup.add( rdbtnNewRadioButton_1_1_4);
+		radioButtonGroup.add( rdbtnNewRadioButton_1_1_5);
+		radioButtonGroup.add( rdbtnNewRadioButton_1_1_6);
+		radioButtonGroup.add( rdbtnNewRadioButton_1_1_7);
+		
 		JPanel panel_rightdown = new JPanel();
 		panel_rightdown.setBounds(286, 260, 600, 353);
 		frame.getContentPane().add(panel_rightdown);
@@ -464,7 +474,7 @@ public class gestion_des_enseignants {
 		resultatText3_1.setBounds(25, 210, 275, 55);
 		panel_rightdown.add(resultatText3_1);
 		
-		JLabel heureLabel = new JLabel("40h");
+		JLabel heureLabel = new JLabel("80");
 		heureLabel.setForeground(new Color(21, 50, 207));
 		heureLabel.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 16));
 		heureLabel.setBounds(330, 190, 210, 55);
@@ -495,37 +505,37 @@ public class gestion_des_enseignants {
 		userLabel.setIcon(new ImageIcon(getClass().getResource("/Image/user.png")));
 		panel_righttop.add(userLabel);
 		
-		JLabel nameLabel = new JLabel("Pr\u00E9nom NOM");
-		nameLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		JLabel nameLabel = new JLabel("Taojun Wang");
 		nameLabel.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 30));
 		nameLabel.setForeground(new Color(21, 50, 207));
-		nameLabel.setBounds(171, 30, 250, 40);
+		nameLabel.setBounds(160, 55, 231, 40);
 		panel_righttop.add(nameLabel);
 		
-		JLabel telLabel = new JLabel("T\u00E9l : 06 23 12 07 03");
+		JLabel telLabel = new JLabel("Tel : 12 34 55 66 66");
 		telLabel.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
 		telLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		telLabel.setForeground(new Color(21, 50, 207));
-		telLabel.setBounds(171, 80, 150, 30);
+		telLabel.setBounds(160, 105, 150, 30);
 		panel_righttop.add(telLabel);
 		
-		JLabel mailLabel = new JLabel("Email : prenom.nom@utt.fr");
+		JLabel mailLabel = new JLabel("Email : taojun.wang@utt.fr");
 		mailLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		mailLabel.setForeground(new Color(21, 50, 207));
 		mailLabel.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
-		mailLabel.setBounds(331, 80, 195, 30);
+		mailLabel.setBounds(320, 105, 195, 30);
 		panel_righttop.add(mailLabel);
 		
 		JButton row1_button_1 = new JButton("Contactez-le");
 		row1_button_1.setForeground(new Color(21, 50, 207));
 		row1_button_1.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
-		row1_button_1.setBounds(171, 113, 170, 29);
+		row1_button_1.setBounds(399, 55, 140, 40);
 		panel_righttop.add(row1_button_1);
 		
 		//reflect
+		
 		rdbtnNewRadioButton_1_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Person person0 = database.getPerson(0);
+				Person person0 = database.getPerson(1);
 				nameLabel.setText(person0.nameLabel);
 				telLabel.setText(person0.telLabel);
 				mailLabel.setText(person0.mailLabel);
@@ -538,7 +548,7 @@ public class gestion_des_enseignants {
 		
 		rdbtnNewRadioButton_1_1_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Person person = database.getPerson(1);
+				Person person = database.getPerson(2);
 				nameLabel.setText(person.nameLabel);
 				telLabel.setText(person.telLabel);
 				mailLabel.setText(person.mailLabel);
@@ -549,8 +559,105 @@ public class gestion_des_enseignants {
 				
 			}
 		});
+		rdbtnNewRadioButton_1_1_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Person person = database.getPerson(3);
+				nameLabel.setText(person.nameLabel);
+				telLabel.setText(person.telLabel);
+				mailLabel.setText(person.mailLabel);
+				typeLabel.setText(person.typeLabel);
+				heureLabel.setText(person.heure);
+				dateLabel.setText(person.date);
+				comboBox.setModel(new DefaultComboBoxModel(person.ues));
+			}
+		});
+		rdbtnNewRadioButton_1_1_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Person person = database.getPerson(4);
+				nameLabel.setText(person.nameLabel);
+				telLabel.setText(person.telLabel);
+				mailLabel.setText(person.mailLabel);
+				typeLabel.setText(person.typeLabel);
+				heureLabel.setText(person.heure);
+				dateLabel.setText(person.date);
+				comboBox.setModel(new DefaultComboBoxModel(person.ues));
+			}
+		});
+
+		rdbtnNewRadioButton_1_1_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Person person = database.getPerson(5);
+				nameLabel.setText(person.nameLabel);
+				telLabel.setText(person.telLabel);
+				mailLabel.setText(person.mailLabel);
+				typeLabel.setText(person.typeLabel);
+				heureLabel.setText(person.heure);
+				dateLabel.setText(person.date);
+				comboBox.setModel(new DefaultComboBoxModel(person.ues));
+			}
+		});
+		rdbtnNewRadioButton_1_1_5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Person person = database.getPerson(6);
+				nameLabel.setText(person.nameLabel);
+				telLabel.setText(person.telLabel);
+				mailLabel.setText(person.mailLabel);
+				typeLabel.setText(person.typeLabel);
+				heureLabel.setText(person.heure);
+				dateLabel.setText(person.date);
+				comboBox.setModel(new DefaultComboBoxModel(person.ues));
+			}
+		});
+		rdbtnNewRadioButton_1_1_6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Person person = database.getPerson(7);
+				nameLabel.setText(person.nameLabel);
+				telLabel.setText(person.telLabel);
+				mailLabel.setText(person.mailLabel);
+				typeLabel.setText(person.typeLabel);
+				heureLabel.setText(person.heure);
+				dateLabel.setText(person.date);
+				comboBox.setModel(new DefaultComboBoxModel(person.ues));
+			}
+		});
+		rdbtnNewRadioButton_1_1_7.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Person person = database.getPerson(8);
+				nameLabel.setText(person.nameLabel);
+				telLabel.setText(person.telLabel);
+				mailLabel.setText(person.mailLabel);
+				typeLabel.setText(person.typeLabel);
+				heureLabel.setText(person.heure);
+				dateLabel.setText(person.date);
+				comboBox.setModel(new DefaultComboBoxModel(person.ues));
+			}
+		});
+		
+		/**
+		 * listen action of inpnut by user and change data of right place manneul
+		 */
+		row1_button_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String name = textField.getText();
+				if( database.checkPerson(name) != -1 ) {
+					int id = database.checkPerson(name);
+					radioButtonGroup.get(id-1).setSelected(true);
+					Person person = database.getPerson(id);
+					nameLabel.setText(person.nameLabel);
+					telLabel.setText(person.telLabel);
+					mailLabel.setText(person.mailLabel);
+					typeLabel.setText(person.typeLabel);
+					heureLabel.setText(person.heure);
+					dateLabel.setText(person.date);
+					comboBox.setModel(new DefaultComboBoxModel(person.ues));
+				}
+				
+			}
+		});
+		
 		
 		
 	}
+
 	
 }
