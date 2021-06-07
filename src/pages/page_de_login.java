@@ -135,7 +135,7 @@ public class page_de_login {
 		title.setForeground(new Color(21, 50, 207));
 		panel.add(title );
 		
-		JLabel uttLabel = new LinkLabel("","https://www.utt.fr/");
+		JLabel uttLabel = new LinkLabel("","www.utt.fr");
 		uttLabel.setIcon(new ImageIcon(getClass().getResource("/Image/UTT.png")));
 		uttLabel.setBounds(10, 10, 210, 90);
 		panel.add(uttLabel);

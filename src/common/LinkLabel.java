@@ -13,8 +13,8 @@ import java.net.URL;
 import javax.swing.JLabel;
 /**
  * 
- * 超链接文本标签类
- * @author liuxing
+ * 
+ * @author dwdw666
  *
  */
 public class LinkLabel extends JLabel {

@@ -473,7 +473,7 @@ public class statistiques_des_flux_entrants_et_sortants {
 		panel_right.add(lable_semestre_4_1);
 		
 		JScrollBar scrollBar = new JScrollBar();
-		scrollBar.setBounds(595, 0, 17, 503);
+		scrollBar.setBounds(583, 0, 17, 503);
 		panel_right.add(scrollBar);
 		
 		JLabel human_image_8 = new JLabel();
